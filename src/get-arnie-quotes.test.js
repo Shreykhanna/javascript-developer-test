@@ -24,11 +24,18 @@ test("responses to be correct", async () => {
   expect(results[3]).toEqual({ FAILURE: "Your request has been terminated" });
 });
 
-// Added additional test to check the input type
+// Added additional test to check the input is an array
 test("should immediately return if the input is not an array", async () => {
   const url = "http://www.smokeballdev.com/arnie0";
   const results = await getArnieQuotes(url);
-  expect(results).toEqual("Input should be of type array");
+  expect(results).toEqual("Input should be an array");
+});
+
+// Added additonal test to check if the input is an array of type string
+test("should immediately return if the input is an array but not of type string", async () => {
+  const data = [1, 2, 3, 4, 5];
+  const results = await getArnieQuotes(data);
+  expect(results).toEqual("Input should be an array of type string");
 });
 
 // Added additional test to check the return type of result

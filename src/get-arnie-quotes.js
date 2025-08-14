@@ -5,8 +5,13 @@ const getArnieQuotes = async (urls) => {
     failureKey = "FAILURE";
 
   if (!Array.isArray(urls)) {
-    return "Input should be of type array";
+    return "Input should be an array";
   }
+
+  if (Array.isArray(urls) && !urls.every((item) => typeof item === "string")) {
+    return "Input should be an array of type string";
+  }
+
   const results = await Promise.all(
     urls.map(async (url) => {
       const { status, body } = await httpGet(url);
