@@ -4,6 +4,9 @@ const getArnieQuotes = async (urls) => {
   const successKey = "Arnie Quote",
     failureKey = "FAILURE";
 
+  if (!Array.isArray(urls)) {
+    return "Input should be of type array";
+  }
   const results = await Promise.all(
     urls.map(async (url) => {
       const { status, body } = await httpGet(url);
