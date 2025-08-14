@@ -35,7 +35,7 @@ test("should immediately return if the input is not an array", async () => {
 test("should immediately return if the input is an array but not of type string", async () => {
   const data = [1, 2, 3, 4, 5];
   const results = await getArnieQuotes(data);
-  expect(results).toEqual("Input should be an array of type string");
+  expect(results).toEqual("Inputs in an array should be of type string");
 });
 
 // Added additional test to check the return type of result

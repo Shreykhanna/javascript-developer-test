@@ -6,7 +6,7 @@ const getArnieQuotes = async (urls) => {
   }
 
   if (Array.isArray(urls) && !urls.every((item) => typeof item === "string")) {
-    return "Input should be an array of type string";
+    return "Inputs in an array should be of type string";
   }
   const successKey = "Arnie Quote",
     failureKey = "FAILURE";
