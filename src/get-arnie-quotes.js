@@ -1,9 +1,6 @@
 const { httpGet } = require("./mock-http-interface");
 
 const getArnieQuotes = async (urls) => {
-  const successKey = "Arnie Quote",
-    failureKey = "FAILURE";
-
   if (!Array.isArray(urls)) {
     return "Input should be an array";
   }
@@ -11,6 +8,8 @@ const getArnieQuotes = async (urls) => {
   if (Array.isArray(urls) && !urls.every((item) => typeof item === "string")) {
     return "Input should be an array of type string";
   }
+  const successKey = "Arnie Quote",
+    failureKey = "FAILURE";
 
   const results = await Promise.all(
     urls.map(async (url) => {
