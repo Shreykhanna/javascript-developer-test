@@ -39,19 +39,19 @@ test("should immediately return if the input is an array but not of type string"
 });
 
 // Added additional test to check the return type of result
-test("response returned should be promise", () => {
+test("should return response of type promise", () => {
   const results = getArnieQuotes(urls);
   expect(results).toBeInstanceOf(Promise);
 });
 
 // Added additional test to check result is not empty
-test("response returned should not be empty", async () => {
+test("should not return an empty response", async () => {
   const results = await getArnieQuotes(urls);
   expect(results.length).not.toBe(0);
 });
 
-// Added additional test to check the type of each result
-test("responses should be of type object", async () => {
+// Added additional test to check the type of each response in the result array
+test("should return each response of type object", async () => {
   const results = await getArnieQuotes(urls);
   expect(results[0]).toBeInstanceOf(Object);
   expect(results[1]).toBeInstanceOf(Object);
